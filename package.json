@@ -1,0 +1,40 @@
+{
+  "name": "migrate-to-es6-module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "watch:dev": "nodemon",
+    "dev": "NODE_ENV=development npm run clean && npm run transpile && npm run start",
+    "start": "node ./build/index",
+    "try": "node ./server/index",
+    "clean": "rm -rf ./build",
+    "transpile": "babel ./server --out-dir build"
+  },
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "server/*",
+      "public/*"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": ["@babel/plugin-transform-runtime"]
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.4",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "nodemon": "^2.0.2"
+  }
+}
