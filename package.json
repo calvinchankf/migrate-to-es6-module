@@ -5,8 +5,8 @@
   "scripts": {
     "watch:dev": "nodemon",
     "dev": "NODE_ENV=development npm run clean && npm run transpile && npm run start",
+    "build": "NODE_ENV=production npm run clean && npm run transpile",
     "start": "node ./build/index",
-    "try": "node ./server/index",
     "clean": "rm -rf ./build",
     "transpile": "babel ./server --out-dir build"
   },
