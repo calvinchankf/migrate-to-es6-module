@@ -10,7 +10,7 @@ router.get("/", async (req, res, next) => {
 		ip: req.ip,
 		ips: req.ips,
 		remoteAddress: req.connection.remoteAddress,
-		"x-forwarded-fpr": req.headers["x-forwarded-for"],
+		"x-forwarded-for": req.headers["x-forwarded-for"],
 		"x-real-ip": req.headers["x-real-ip"],
 	};
 	res.status(200).json(x);
